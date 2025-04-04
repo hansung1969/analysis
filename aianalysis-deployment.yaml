@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aianalysis-deployment
+  labels:
+    app: aianalysis-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aianalysis-app
+  template:
+    metadata:
+      labels:
+        app: aianalysis-app
+    spec:
+      containers:
+      - name: aianalysis
+        image: 796973511319.dkr.ecr.ap-northeast-2.amazonaws.com/hkit/kit3:latest
+        ports:
+        - containerPort: 9091
